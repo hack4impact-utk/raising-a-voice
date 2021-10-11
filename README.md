@@ -34,4 +34,4 @@ Note: Running npm build then npm start will start the application in production 
 * `Frontend/src/components`: Contains most of our front-end code. This is where we put our React components.
 * `Backend/`: Contains files that are associated with a route based on its file name.
 * `Frontend/public/`: Stores static files like images, see Next.js' [docs](https://nextjs.org/docs/basic-features/static-file-serving).
-* `Frontend/styles/`: Contains our SCSS files for global styling, variables, and mixins.
+* `Frontend/src/styles/`: Contains our SCSS files for global styling, variables, and mixins.
