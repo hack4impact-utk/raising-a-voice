@@ -6,7 +6,7 @@ User database to host information about clients.
 **Backend**: MongoDB / SQL
 
 ## Dependencies
-npm
+npm materialUI
 
 ## How to Run
 1. Clone the repository.
