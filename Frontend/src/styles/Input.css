@@ -1,0 +1,14 @@
+.MuiGrid-grid-xs-12 .text-field {
+    width: 90%;
+    margin: 0.5rem !important;
+}
+
+.MuiGrid-grid-xs-6 .text-field {
+    width: 80%;
+    margin: 0.5rem !important;
+}
+
+.MuiGrid-grid-xs-3 .text-field {
+    width: 60%;
+    margin: 0.5rem !important;
+}
