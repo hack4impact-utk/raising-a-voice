@@ -3,6 +3,7 @@ import Input from './Input';
 import RadioGroup from './RadioGroup';
 import DatePicker from './DatePicker';
 import PhoneNumber from './PhoneNumber';
+import Button from './Button';
 
 import React, {useState, useEffect} from 'react';
 import Grid from '@mui/material/Grid';
@@ -54,6 +55,12 @@ export default function Profile() {
             ...values,
             [name]: value
         });
+    }
+
+    const createProfile = async event => {
+        event.preventDefault();
+
+        /* Insert code to connect to backend */
     }
 
     return (
@@ -155,7 +162,7 @@ export default function Profile() {
                     <Grid item xs={3}>
                         <Input
                             label="State"
-                            name="state "
+                            name="state"
                             value={values.state}
                             onChange={handleInputChange}
                         />
@@ -190,6 +197,16 @@ export default function Profile() {
                             name="driversLicense"
                             value={values.driversLicense}
                             onChange={handleInputChange}
+                        />
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Button
+                            variant="contained"
+                            size="large"
+                            color="primary"
+                            text="Submit"
+                            onClick={createProfile}
+                            type="submit"
                         />
                     </Grid>
                 </Grid>
