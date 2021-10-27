@@ -204,7 +204,7 @@ export default function Profile() {
                             variant="contained"
                             size="large"
                             color="primary"
-                            text="Submit"
+                            text="Create"
                             onClick={createProfile}
                             type="submit"
                         />
