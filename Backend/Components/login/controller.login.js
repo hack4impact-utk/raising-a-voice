@@ -14,7 +14,7 @@ module.exports = (function () {
  } catch(e){
   res.status(502).send(e)
  } finally {
-  
+   
  }
 
  if (loginId.size = 0){
@@ -41,7 +41,7 @@ module.exports = (function () {
         version: "1.0.0",
         status: "OK",
       });}
-      
+
   return {
     login: login,
   };
