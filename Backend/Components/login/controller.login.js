@@ -5,7 +5,7 @@ const mysql = require("../../db/mysqldb")
 const saltRounds = 10;
 
 
-module.exports = (function () {
+module.exports = function () {
  const {username, password} = req.body;
  
  const con = await mysql.connection()
@@ -29,14 +29,12 @@ module.exports = (function () {
    res.status(400).send("wrong password");
  }
 
-accessToken= await signAccessToken(idv4);
-refreshToken= await signRefreshToken(idv4);
-
-function message(req, res, next) {
-      res.status(200).json("Succesful Login");}
+accessToken = await signAccessToken(idv4);
+refreshToken = await signRefreshToken(idv4);
 
 
- res.send ({ accessToken: accessToken, refreshToken : refreshToken, message: message })
+
+ res.send ({ accessToken: accessToken, refreshToken : refreshToken, message: "token generated" })
 
  } catch(e){
   res.status(502).send(e)
@@ -46,7 +44,7 @@ function message(req, res, next) {
 
 
 
-})();
+}();
 
 function bcryptpassword(password, Sqlpassword) {
  
