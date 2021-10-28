@@ -4,7 +4,7 @@ const mysql = require("../../db/mysqldb")
 const saltRounds = 10;
 
 module.exports = (function () {
- const {username, password, email} = req.body;
+ const {username, password} = req.body;
  
  const con = await mysql.connection()
 
@@ -34,7 +34,7 @@ module.exports = (function () {
 
  const id = uuid.v4();
 
- if (bryptpassword(body.password, userLogin[0]["password"]) = false) {
+ if (bryptpassword(password, userLogin[0]["password"]) = false) {
    res.status(400).send("wrong password");
  }
 
