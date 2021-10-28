@@ -9,44 +9,48 @@ module.exports = (function () {
  const con = await mysql.connection()
 
  try {
-  let loginProfile = await con.query("selection id from profiles")
+  const userLogin = [Sqlusername, Sqlpassword];
+  let loginId = await con.query("select * from users values(?,?)", userLogin);
  } catch(e){
   res.status(502).send(e)
  } finally {
+  
+ }
+
+ if (loginId.size = 0){
+  res.status (400).send(e)
 
  }
 
-  if (loginCheck == false) {
-    function login(req, res, next) {
-      res.status(401).json({
-        app: "Raising a Voice",
-        version: "1.0.0",
-        status: "OK",
-      });
-    }
-  }
+ if (loginId.size > 1) {
+  res.status(400).send(e);
+ }
 
-  // if true signToken issued and page returns 200
-  if (loginCheck == true) {
-    signToken();
+
+
+ const id = uuid.v4();
+
+ if (bryptpassword(body.password, userLogin[0][Sqlpassword]) = false) {
+   res.status(400).send("wrong password");
+ }
+
+  signToken();
     function login(req, res, next) {
       res.status(200).json({
         app: "Raising a Voice",
         version: "1.0.0",
         status: "OK",
-      });
-    }
-  }
-
+      });}
+      
   return {
     login: login,
   };
+
+
 })();
 
-function loginCheck(id, password, role) {
-  var user = this;
-  //uuid?
-
+function bryptpassword(password) {
+ 
   // hashing user's input for password
   bcrypt.genSalt(saltRounds, function (err, salt) {
     if (err) return next(err);
@@ -55,19 +59,14 @@ function loginCheck(id, password, role) {
     });
   });
 
-  // compare user's password with hashed value from the Moongoose
-  bcrypt.compare(user.password, hash, function (err, result) {});
+  // compare user's password with hashed value from the database
+  bcrypt.compare(password, hash, function (err, result) {});
   if (result == false) {
     return false;
+  } else {
+   return true;
   }
 
-  if (role == "admin") {
-    user.role == "admin";
-  } else if (role == "intern") {
-    user.role == "intern";
-  } else if (role == "staff") {
-    user.role == "staff";
-  }
 }
 
 // refresh token
