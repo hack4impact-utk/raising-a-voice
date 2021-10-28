@@ -10,16 +10,11 @@ module.exports = (function () {
 
  try {
   const userLogin = [username, password];
-  let loginId = await con.query("select * from users values(?,?)", userLogin);
- } catch(e){
-  res.status(502).send(e)
- } finally {
-   
- }
+  let loginId = await con.query("select * from users where username = ?", username)
 
- if (loginId.length = 0){
+
+   if (loginId.length = 0){
   res.status (400).send(e)
-
  }
 
  if (loginId.length > 1) {
@@ -27,10 +22,19 @@ module.exports = (function () {
  }
 
 
+ } catch(e){
+  res.status(502).send(e)
+ } finally {
+   
+ }
+
+
+
+
 
  const id = uuid.v4();
 
- if (bryptpassword(body.password, userLogin[0][Sqlpassword]) = false) {
+ if (bryptpassword(body.password, userLogin[0]["password"]) = false) {
    res.status(400).send("wrong password");
  }
 
