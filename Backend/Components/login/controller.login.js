@@ -9,7 +9,7 @@ module.exports = (function () {
  const con = await mysql.connection()
 
  try {
-  const userLogin = [Sqlusername, Sqlpassword];
+  const userLogin = [username, password];
   let loginId = await con.query("select * from users values(?,?)", userLogin);
  } catch(e){
   res.status(502).send(e)
@@ -17,12 +17,12 @@ module.exports = (function () {
    
  }
 
- if (loginId.size = 0){
+ if (loginId.length = 0){
   res.status (400).send(e)
 
  }
 
- if (loginId.size > 1) {
+ if (loginId.length > 1) {
   res.status(400).send(e);
  }
 
@@ -34,7 +34,7 @@ module.exports = (function () {
    res.status(400).send("wrong password");
  }
 
-  signToken();
+  signToken(id,secretKey ,"5s" ); // idk what secretkey is supposed to be
     function login(req, res, next) {
       res.status(200).json({
         app: "Raising a Voice",
@@ -49,7 +49,7 @@ module.exports = (function () {
 
 })();
 
-function bryptpassword(password) {
+function bryptpassword(password, Sqlpassword) {
  
   // hashing user's input for password
   bcrypt.genSalt(saltRounds, function (err, salt) {
@@ -60,7 +60,7 @@ function bryptpassword(password) {
   });
 
   // compare user's password with hashed value from the database
-  bcrypt.compare(password, hash, function (err, result) {});
+  bcrypt.compare(Sqlpassword, hash, function (err, result) {});
   if (result == false) {
     return false;
   } else {
@@ -74,8 +74,7 @@ function signToken(userId, secretKey, expiresIn) {
   return new Promise((resolve, reject) => {
     const options = {
       expiresIn: expiresIn,
-      issuer: "rav.com",
-      audience: userId,
+      audience: userId
     };
 
     jwt.sign({}, secretKey, options, (err, token) => {
@@ -89,11 +88,11 @@ function signToken(userId, secretKey, expiresIn) {
 }
 
 function signAccessToken(userId) {
-  return signToken(userId, "accessTokenSecretKey", "1h");
+  return signToken(userId, "accessTokenSecretKey", "5s");
 }
 
 function signRefreshToken(userId) {
-  return signToken(userId, "refreshTokenSecretKey", "60d");
+  return signToken(userId, "refreshTokenSecretKey", "1h");
 }
 
 async function reIssueTokens(refreshToken) {
