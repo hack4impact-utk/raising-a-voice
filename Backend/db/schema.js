@@ -5,6 +5,7 @@ async function run() {
 
     let create_profile = 
     `create table if not exists profile(
+        profile_id varchar(36) primary key,
         legal_name text,
         nickname text,
         dob date,
@@ -31,13 +32,58 @@ async function run() {
         medication_boolean char(1),
         medication text,
         notes text
-    );`
+    ) ENGINE = INNODB;`
+
+    let create_users = 
+    `create table if not exists users(
+        user_id varchar(36) primary key,
+        username varchar(36),
+        password varchar(255),
+        email varchar(255)
+    ) ENGINE = INNODB;`
+
+    let create_notes = 
+    `create table if not exists notes(
+        notes_id varchar(36) primary key,
+        profile_id varchar(36),
+        user_id varchar(36),
+        description text,
+        time time,
+        duration int,
+        foreign key(profile_id) references profile(profile_id),
+        foreign key(user_id) references users(user_id)
+
+    )`
+
+    let create_calendar = 
+    `create table if not exists calendar(
+        profile_id varchar(36),
+        notes_id varchar(36),
+        user_id varchar(36),
+        date date,
+        month enum('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'),
+        year varchar(4),
+        foreign key(profile_id) references profile(profile_id),
+        foreign key(notes_id) references notes(notes_id),
+        foreign key(user_id) references users(user_id)
+    ) ENGINE = INNODB;`
+
+    
+   
 
 
     try {
-        let result = await con.query(create_profile)
-        console.log(result)
+        await con.query("START TRANSACTION;");
+        await con.query(create_profile)
+        await con.query(create_users)
+        await con.query(create_notes)
+        await con.query(create_calendar)
+        await con.query("COMMIT;")
+        console.log(`Databases created!`)
+
+        
     } catch (e) {
+        await con.query("ROLLBACK;")
         console.log(e)
     } finally {
         await con.release()

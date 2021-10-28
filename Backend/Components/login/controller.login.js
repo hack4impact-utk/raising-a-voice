@@ -15,9 +15,9 @@ module.exports = function () {
   let loginId = await con.query("select * from users where username = ?", username)
 
 
-   if (loginId.length == 0){
-  res.status (400).send("id does not exist")
- }
+  if (loginId.length == 0){
+      res.status (400).send("id does not exist")
+  }
 
  if (loginId.length > 1) {
   res.status(400).send("more than one id, please check with admin");
