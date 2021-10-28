@@ -39,7 +39,7 @@ module.exports = (function () {
    res.status(400).send("wrong password");
  }
 
- await signToken(idv4, process.dotenv.accessToken ,"5s" ); 
+ await signAccessToken(idv4);
 
 
     function login(req, res, next) {
@@ -100,30 +100,4 @@ function signAccessToken(userId) {
 
 function signRefreshToken(userId) {
   return signToken(userId, process.env.refreshToken, "1h");
-}
-
-async function reIssueTokens(refreshToken) {
-  const payload = await verifyRefreshToken(refreshToken);
-  const userId = payload.aud;
-
-  let userToken = await UserToken.find({ user: userId })
-    .sort({ createdAt: -1 })
-    .limit(1);
-
-  userToken = userToken[0];
-  if (!userToken) throw { isError: true, message: "User token does not exist" };
-  if (userToken.refreshToken !== refreshToken)
-    throw { isError: true, message: "Old token. Not valid anymore." };
-
-  const [accessToken, refToken] = await Promise.all([
-    signAccessToken(userId),
-    signRefreshToken(userId),
-  ]);
-
-  await UserToken.findOneAndUpdate(
-    { _id: userToken._id },
-    { $set: { refreshToken: refToken } }
-  );
-
-  return { accessToken: accessToken, refreshToken: refToken };
 }
