@@ -22,24 +22,25 @@ module.exports = (function () {
   res.status(400).send(e);
  }
 
+   const idv4 = uuid.v4();
 
- } catch(e){
-  res.status(502).send(e)
- } finally {
-   await con.release
- }
-
-
-
-
-
- const idv4 = uuid.v4();
-
- if (bryptpassword(password, userLogin[0]["password"]) = false) {
+ if (bcryptpassword(password, userLogin[0]["password"]) = false) {
    res.status(400).send("wrong password");
  }
 
  await signAccessToken(idv4);
+
+
+ } catch(e){
+  res.status(502).send(e)
+ } finally {
+   await con.release()
+ }
+
+
+
+
+
 
 
     function login(req, res, next) {
@@ -56,23 +57,19 @@ module.exports = (function () {
 
 })();
 
-function bryptpassword(password, Sqlpassword) {
+function bcryptpassword(password, Sqlpassword) {
  
   // hashing user's input for password
   bcrypt.genSalt(saltRounds, function (err, salt) {
     if (err) console.log("error hashing");
-    bcrypt.hash(password, salt, function (err, hash) {
+   hashed = bcrypt.hash(password, salt, function (err, hash) {
       if (err)  console.log("error hashing");
     });
   });
 
   // compare user's password with hashed value from the database
-  bcrypt.compare(Sqlpassword, hash, function (err, result) {});
-  if (result == false) {
-    return false;
-  } else {
-   return true;
-  }
+  bcrypt.compare(Sqlpassword, hashed, function (err, result) { return result});
+  
 
 }
 
