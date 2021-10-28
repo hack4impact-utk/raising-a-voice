@@ -1,5 +1,6 @@
 const brcypt = require("bcrypt"); // password hashing
 const uuid = require("uuid");
+const dotenv = require('dotenv').config()
 const mysql = require("../../db/mysqldb")
 const saltRounds = 10;
 
@@ -25,20 +26,22 @@ module.exports = (function () {
  } catch(e){
   res.status(502).send(e)
  } finally {
-   
+   await con.release
  }
 
 
 
 
 
- const id = uuid.v4();
+ const idv4 = uuid.v4();
 
  if (bryptpassword(password, userLogin[0]["password"]) = false) {
    res.status(400).send("wrong password");
  }
 
-  signToken(id,secretKey ,"5s" ); // idk what secretkey is supposed to be
+ await signToken(idv4, process.dotenv.accessToken ,"5s" ); 
+
+
     function login(req, res, next) {
       res.status(200).json({
         app: "Raising a Voice",
@@ -57,9 +60,9 @@ function bryptpassword(password, Sqlpassword) {
  
   // hashing user's input for password
   bcrypt.genSalt(saltRounds, function (err, salt) {
-    if (err) return next(err);
+    if (err) console.log("error hashing");
     bcrypt.hash(password, salt, function (err, hash) {
-      if (err) return next(err);
+      if (err)  console.log("error hashing");
     });
   });
 
@@ -81,7 +84,7 @@ function signToken(userId, secretKey, expiresIn) {
       audience: userId
     };
 
-    jwt.sign({}, secretKey, options, (err, token) => {
+    jwt.sign({userId:userId}, secretKey, options, (err, token) => {
       if (err) {
         reject({ isError: true, message: "Invalid operation!" });
       } else {
@@ -92,11 +95,11 @@ function signToken(userId, secretKey, expiresIn) {
 }
 
 function signAccessToken(userId) {
-  return signToken(userId, "accessTokenSecretKey", "5s");
+  return signToken(userId, process.env.accessToken, "5s");
 }
 
 function signRefreshToken(userId) {
-  return signToken(userId, "refreshTokenSecretKey", "1h");
+  return signToken(userId, process.env.refreshToken, "1h");
 }
 
 async function reIssueTokens(refreshToken) {
