@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config()
 const mysql = require("../../db/mysqldb")
 const saltRounds = 10;
 
+
 module.exports = (function () {
  const {username, password} = req.body;
  
@@ -14,12 +15,12 @@ module.exports = (function () {
   let loginId = await con.query("select * from users where username = ?", username)
 
 
-   if (loginId.length = 0){
-  res.status (400).send(e)
+   if (loginId.length == 0){
+  res.status (400).send("id does not exist")
  }
 
  if (loginId.length > 1) {
-  res.status(400).send(e);
+  res.status(400).send("more than one id, please check with admin");
  }
 
    const idv4 = uuid.v4();
@@ -28,8 +29,14 @@ module.exports = (function () {
    res.status(400).send("wrong password");
  }
 
- await signAccessToken(idv4);
+accessToken= await signAccessToken(idv4);
+refreshToken= await signRefreshToken(idv4);
 
+function message(req, res, next) {
+      res.status(200).json("Succesful Login");}
+
+
+ res.send ({ accessToken: accessToken, refreshToken : refreshToken, message: message })
 
  } catch(e){
   res.status(502).send(e)
@@ -37,22 +44,6 @@ module.exports = (function () {
    await con.release()
  }
 
-
-
-
-
-
-
-    function login(req, res, next) {
-      res.status(200).json({
-        app: "Raising a Voice",
-        version: "1.0.0",
-        status: "OK",
-      });}
-
-  return {
-    login: login,
-  };
 
 
 })();
