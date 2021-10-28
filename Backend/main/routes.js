@@ -1,12 +1,11 @@
 'use strict'
 
 let rootRoutes = require('../Components/root/routes')
-let calendarRoutes = require('../Components/calendar/routes')
+let profileRoutes = require('../Components/profile/routes')
 
 module.exports = function (app) {
     app.use('/', rootRoutes);
-    app.use('/calendar', calendarRoutes)
-
+    app.use('/profile', profileRoutes);
 
     app.all('/*', function (req, res) {
         return res.status(404).json({message: 'Cannot find specified URL'});
