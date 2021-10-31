@@ -1,11 +1,11 @@
 import './styles/App.css';
-import Login from './components/Login.js'
+import Profile from './components/Profile'
 
 function App() {
   return (
     <div className="App">
       Begin inserting your code here!
-      <Login></Login>
+      <Profile />
     </div>
   );
 }
