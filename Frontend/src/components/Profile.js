@@ -66,9 +66,9 @@ export default function Profile() {
     return (
         <>
             <h1>Profile Creation</h1>
-            <form>
-                <Grid container>
-                    <Grid item xs={6}>
+            <form class="creation-form">
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
                         <Input
                             label="Legal Name"
                             name="legalName"
@@ -76,7 +76,23 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={3}>
+                        <Input
+                            label="Preferred Name"
+                            name="preferredName"
+                            value={values.preferredName}
+                            onChange={handleInputChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={3}>
+                        <DatePicker
+                            label="Date of Birth"
+                            name="DoB"
+                            value={values.DoB}
+                            onChange={handleInputChange}
+                        />
+                    </Grid>
+                    <Grid item xs={12} md={12}>
                         <RadioGroup
                             label="Sex"
                             name="sex"
@@ -85,15 +101,7 @@ export default function Profile() {
                             items={genderItems}
                         />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Input
-                            label="Preferred Name"
-                            name="preferredName"
-                            value={values.preferredName}
-                            onChange={handleInputChange}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={12}>
                         <RadioGroup
                             label="Marital Status"
                             name="maritalStatus"
@@ -102,15 +110,7 @@ export default function Profile() {
                             items={maritalItems}
                         />
                     </Grid>
-                    <Grid item xs={6}>
-                        <DatePicker
-                            label="Date of Birth"
-                            name="DoB"
-                            value={values.DoB}
-                            onChange={handleInputChange}
-                        />
-                    </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={3}>
                         <RadioGroup
                             label="Employment Status"
                             name="employmentStatus"
@@ -119,7 +119,7 @@ export default function Profile() {
                             items={employmentItems}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={9}>
                         <Input
                                 label="Place of Employment (if necessary)"
                                 name="placeOfEmployment"
@@ -127,7 +127,7 @@ export default function Profile() {
                                 onChange={handleInputChange}
                             />
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} md={12}>
                         <Input
                             label="Where does the client typically reside?"
                             name="residencyStatus"
@@ -135,7 +135,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Input
                             label="Address"
                             name="address"
@@ -143,7 +143,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <Input
                             label="City"
                             name="city"
@@ -151,7 +151,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <Input
                             label="County"
                             name="county"
@@ -159,7 +159,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <Input
                             label="State"
                             name="state"
@@ -167,7 +167,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <Input
                             label="Zip"
                             name="zip"
@@ -175,7 +175,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <PhoneNumber
                             label="Cell Number"
                             name="cellNumber"
@@ -183,7 +183,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Input
                             label="Social Security #"
                             name="ssn"
@@ -191,7 +191,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={6}>
                         <Input
                             label="Driver's License/ID #"
                             name="driversLicense"
@@ -199,7 +199,7 @@ export default function Profile() {
                             onChange={handleInputChange}
                         />
                     </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={12} md={3}>
                         <Button
                             variant="contained"
                             size="large"

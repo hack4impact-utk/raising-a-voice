@@ -14,7 +14,7 @@ export default function Input(props) {
             name={name}
             value={value}
             onChange={onChange}
-            autoComplete="off"
+            autoComplete="none"
         />
     )
 }
