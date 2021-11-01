@@ -66,7 +66,7 @@ export default function Profile() {
     return (
         <>
             <h1>Profile Creation</h1>
-            <form class="creation-form">
+            <form id="creation">
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
                         <Input
@@ -204,7 +204,7 @@ export default function Profile() {
                             variant="contained"
                             size="large"
                             color="primary"
-                            text="Create"
+                            text="create"
                             onClick={createProfile}
                             type="submit"
                         />

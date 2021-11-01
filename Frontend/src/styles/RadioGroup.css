@@ -1,11 +1,3 @@
-.box {
-   margin-bottom: 0.5rem !important;
-}
-
-/* legend {
-   text-align: left;
-} */
-
 @media screen and (min-width: 900px) {
    .box {
       height: 52px;
@@ -17,7 +9,7 @@
       margin: auto;
    }
 
-   .MuiFormControlLabel-root {
+   label {
       margin-right: 5% !important;
    }
 }

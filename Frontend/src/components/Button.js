@@ -8,6 +8,7 @@ export default function Button(props) {
 
     return (
         <MuiButton
+            id={text}
             variant={variant}
             size={size}
             color={color}
