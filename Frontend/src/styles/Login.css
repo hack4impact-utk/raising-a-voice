@@ -1,0 +1,64 @@
+
+.page {
+    padding-top: 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    position: absolute;
+    background-color: #f4f5ff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    background-color: white;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    margin: 20px !important;
+    width: 60%;
+}
+
+.right-align {
+    display: flex;
+    justify-content: flex-end;
+    width: 60%;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+#loginButton {
+    background-color: #e7c451;
+    color: black;
+    margin: 30px;
+    width: 40%;
+}
+
+/* When screen is less than 600px wide */
+@media only screen and (max-width: 600px) {
+
+    /* want the mobile color scheme to look a little different */
+    .page {
+        background-color: whitesmoke;
+    }
+
+    /* the width of the inputs relative to screen is different on mobile */
+    .container {
+        width: 100%;
+        background-color: inherit;
+    }
+}

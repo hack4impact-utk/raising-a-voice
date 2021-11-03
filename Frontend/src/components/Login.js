@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import '../styles/Login.css' 
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -15,33 +15,40 @@ export default function Login() {
     // the backend?
     function handleSubmit(event) {
         event.preventDefault();
+
+        // something with fetch and post username info or params
     }
 
     return (
-            <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
-                <Stack spacing={2} alignItems="center">
-                    <TextField 
-                        required
-                        label="Username"
-                        value={email} 
-                        margin="10"
-                        variant="standard"
-                        onChange={
-                            (e) => setEmail(e.target.value)
-                        }
-                    />
-                    <TextField
-                        required
-                        label="Pasword"
-                        value={password}
-                        variant="standard"
-                        onChange={
-                            (e) => setPassword(e.target.value)
-                        }
-                    />
-                    <Button disabled={!validateForm()} variant="contained">Login</Button>
-                </Stack>
-            </form>
+            <div className="page" >
+                <h1>Admin Login</h1>
+                <div className="container">
+                    <form className="loginForm" onSubmit={handleSubmit}>
+                        <TextField className="input"
+                            required
+                            label="Username"
+                            value={email} 
+                            variant="outlined"
+                            onChange={
+                                (e) => setEmail(e.target.value)
+                            }
+                        />
+                        <TextField className="input"
+                            required
+                            type="password"
+                            label="Password"
+                            value={password}
+                            variant="outlined"
+                            onChange={
+                                (e) => setPassword(e.target.value)
+                            }
+                        />
+                        <div className="right-align">
+                            <a className="link" href="/"> Forgot Password?</a>
+                        </div>
+                        <Button id="loginButton" disabled={!validateForm()} variant="contained">Login</Button>
+                    </form>
+                </div>
+            </div>
     );
 }
