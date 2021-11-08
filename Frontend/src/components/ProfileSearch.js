@@ -3,7 +3,8 @@ import TESTDATA from "../MOCK_DATA.json";
 
 import React, {useState, useEffect} from 'react';
 import InputBase from '@mui/material/InputBase';
-import { HiOutlineSearch } from "react-icons/hi";
+import { HiOutlineSearch, HiPlusSm } from "react-icons/hi";
+import ButtonBase from '@mui/material/ButtonBase';
 
 export default function ProfileSearch() {
     const [searchTerm, setSearchTerm] = useState("");
@@ -12,11 +13,20 @@ export default function ProfileSearch() {
         setSearchTerm(e.target.value);
     }
 
+    useEffect(() => {
+        /* Get the data from the backend whe the page is initially loaded */
+        /* Right now, I am using TESTDATA to test with */
+    });
+
     return (
         <div>
-            <h1>Search Member Database</h1>
+            <ButtonBase id="add-button" >
+                <HiPlusSm size={15} />
+                <p className="button-text">Add New Member</p>
+            </ButtonBase>
+            <p className="title">Search Member Database</p>
             <div className="search-bar">
-                <HiOutlineSearch size={30} />
+                <HiOutlineSearch size={20} color="#a2a2a2"/>
                 <InputBase
                     id="search-text"
                     placeholder="Search by name"

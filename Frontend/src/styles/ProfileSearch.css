@@ -1,12 +1,31 @@
+#add-button {
+    background-color: #c4c4c4;
+    border-radius: .25rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    position: absolute;
+    top: 5vh;
+    right: 2.5vw;
+}
+
+.button-text {
+    margin: 0 0.6rem 0 0.1rem;
+}
+
+.title {
+    margin-top: 15vh;
+    font-size: 2rem;;
+}
+
 .search-bar {
     height: 2rem;
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: left;
-    border: 1px solid black;
+    border: 1px solid #a2a2a2;
     border-radius: 1rem;
     margin: 0 auto 0 auto;
-    width: 50%;
+    width: 70%;
 }
 
 #search-text {
@@ -18,3 +37,16 @@
 svg {
     margin-left: 0.25rem;
 }
+
+@media screen and (max-width: 500px) {
+    #add-button {
+        top: 7.5vh;
+        right: 5vw;
+    }
+    .title {
+        margin-top: 25vh;
+    }
+    .search-bar {
+        width: 80%;
+    }
+ }
