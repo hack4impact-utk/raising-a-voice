@@ -25,7 +25,7 @@ const CalendarPage = () => {
       {/* <div className='search-bar' style={{ marginBottom: 64 }}>
         <Searchbar />
       </div> */}
-      <Grid container spacing={2}>
+      <Grid container spacing={8}>
         <Grid item xs={6} md={4} style={{ marginLeft: '40px', marginTop: '10%' }}>
           <Calendar />
           <h1 id="ongoing-tasks-title">Ongoing Tasks</h1>

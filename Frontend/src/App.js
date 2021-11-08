@@ -23,7 +23,7 @@ function App() {
               if (location.pathname !== to) {
                 history.push(to);
               }
-            }}
+              }}
           >
             <SideNav.Toggle />
             <SideNav.Nav defaultSelected="calendar">
