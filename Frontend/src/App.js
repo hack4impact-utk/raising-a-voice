@@ -26,10 +26,10 @@ function App() {
             }}
           >
             <SideNav.Toggle />
-            <SideNav.Nav defaultSelected="home">
+            <SideNav.Nav defaultSelected="calendar">
               <NavItem eventKey="calendar">
                 <NavIcon>
-                  <i className="fa fa-fw fa-calendar" style={{ fontSize: '1.75em' }}>
+                  <i className="fa fa-fw fa-calendar" style={{ fontSize: '1.75em', color: '#EFCE66' }}>
                     <DateRangeIcon />
                   </i>
                 </NavIcon>
@@ -39,7 +39,7 @@ function App() {
                   </NavItem>
                   <NavItem eventKey="members">
                 <NavIcon>
-                  <i className="fa fa-fw fa-members" style={{ fontSize: '1.75em' }}>
+                  <i className="fa fa-fw fa-members" style={{ fontSize: '1.75em', color: '#EFCE66' }}>
                     <PersonIcon />
                   </i>
                 </NavIcon>
@@ -49,7 +49,7 @@ function App() {
                   </NavItem>
                   <NavItem eventKey="newmember">
                 <NavIcon>
-                  <i className="fa fa-fw fa-to-do" style={{ fontSize: '1.75em' }}>
+                  <i className="fa fa-fw fa-to-do" style={{ fontSize: '1.75em', color: '#EFCE66' }}>
                     <CreateIcon />
                   </i>  
                 </NavIcon>

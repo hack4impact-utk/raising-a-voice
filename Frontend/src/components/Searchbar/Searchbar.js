@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -30,25 +30,18 @@ const names = [
 ];
 
 export default function Searchbar() {
-    const [personName, setPersonName] = React.useState([]);
+    const [personName, setPersonName] = useState("");
 
     const handleChange = (event) => {
-        const {
-            target: { value },
-        } = event;
-        setPersonName(
-            // On autofill we get a the stringified value.
-            typeof value === 'string' ? value.split(',') : value,
-        );
+        setPersonName(event.target.value)
     };
 
 	return (
-        <FormControl sx={{ m: 1, width: 300 }}>
+        <FormControl sx={{ m: 1, width: 250 }}>
             <InputLabel id="demo-multiple-name-label">Name</InputLabel>
             <Select
                 labelId="demo-multiple-name-label"
                 id="demo-multiple-name"
-                multiple
                 value={personName}
                 onChange={handleChange}
                 input={<OutlinedInput label="Name" />}
