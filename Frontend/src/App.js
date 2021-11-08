@@ -1,10 +1,10 @@
 import './styles/App.css';
-import Profile from './components/Profile'
+import ProfileSearch from './components/ProfileSearch'
 
 function App() {
   return (
     <div className="App">
-      <Profile />
+      <ProfileSearch />
     </div>
   );
 }

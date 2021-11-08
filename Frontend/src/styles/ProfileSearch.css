@@ -1,0 +1,20 @@
+.search-bar {
+    height: 2rem;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: 0 auto 0 auto;
+    width: 50%;
+}
+
+#search-text {
+    margin-left: 0.5rem;
+    height: 1rem !important;
+    font-size: 1.25rem;
+}
+
+svg {
+    margin-left: 0.25rem;
+}
