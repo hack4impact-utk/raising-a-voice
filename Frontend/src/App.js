@@ -1,11 +1,14 @@
 import './styles/App.css';
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Calendar from './pages/Calendar'
+import CalendarPage from './pages/Calendar'
 import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
-import './styles/SideNavBar.css'
+import './styles/NavBar.css'
 import Members from './pages/Members';
-import Volunteers from './pages/Volunteers';
+import NewMember from './pages/NewMember';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import PersonIcon from '@mui/icons-material/Person';
+import CreateIcon from '@mui/icons-material/Create';
 
 function App() {
 
@@ -26,7 +29,9 @@ function App() {
             <SideNav.Nav defaultSelected="home">
               <NavItem eventKey="calendar">
                 <NavIcon>
-                  <i className="fa fa-fw fa-calendar" style={{ fontSize: '1.75em' }} />
+                  <i className="fa fa-fw fa-calendar" style={{ fontSize: '1.75em' }}>
+                    <DateRangeIcon />
+                  </i>
                 </NavIcon>
                 <NavText>
                   Calendar
@@ -34,35 +39,30 @@ function App() {
                   </NavItem>
                   <NavItem eventKey="members">
                 <NavIcon>
-                  <i className="fa fa-fw fa-members" style={{ fontSize: '1.75em' }} />
+                  <i className="fa fa-fw fa-members" style={{ fontSize: '1.75em' }}>
+                    <PersonIcon />
+                  </i>
                 </NavIcon>
                 <NavText>
                   Members
                 </NavText>
                   </NavItem>
-                  <NavItem eventKey="to-do">
+                  <NavItem eventKey="newmember">
                 <NavIcon>
-                  <i className="fa fa-fw fa-to-do" style={{ fontSize: '1.75em' }} />
+                  <i className="fa fa-fw fa-to-do" style={{ fontSize: '1.75em' }}>
+                    <CreateIcon />
+                  </i>  
                 </NavIcon>
                 <NavText>
-                  To Do
-                </NavText>
-                  </NavItem>
-                  <NavItem eventKey="volunteers">
-                <NavIcon>
-                  <i className="fa fa-fw fa-volunteers" style={{ fontSize: '1.75em' }} />
-                </NavIcon>
-                <NavText>
-                  Volunteers
+                  New Member
                 </NavText>
               </NavItem>
             </SideNav.Nav>
           </SideNav>
           <main>
-            <Route path="/calendar" component={props => <Calendar />} />
+            <Route path="/calendar" component={props => <CalendarPage />} />
             <Route path="/members" component={props => <Members />} />
-            <Route path="/to-do" component={props => <Calendar />} />
-            <Route path="/volunteers" component={props => <Volunteers />} />
+            <Route path="/newmember" component={props => <NewMember />} />
           </main>
         </React.Fragment>
       )}
