@@ -7,10 +7,10 @@ Frontend/.pnp.js
 Backend/node_modules
 
 # testing
-/coverage
+Frontend/coverage
 
 # production
-/build
+Frontend/build
 
 # misc
 .DS_Store
