@@ -14,12 +14,12 @@ let dbConfig = {
     return( useDefaultTypeCasting() );
   }
 }
-
-if (process.env.NODE_ENV !== 'production') {
-  dbConfig["host"] = process.env.development // For development database configuration
-} else {
-  dbConfig["socketPath"] = process.env.host // For production database configuration
-}
+dbConfig["host"] = process.env.development
+// if (process.env.NODE_ENV !== 'production') {
+//   dbConfig["host"] = process.env.development // For development database configuration
+// } else {
+//   dbConfig["socketPath"] = process.env.host // For production database configuration
+// }
 const pool = mysql.createPool(dbConfig);
 
 const connection = () => {
