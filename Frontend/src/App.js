@@ -1,7 +1,4 @@
 import './styles/App.css';
-<<<<<<< HEAD
-import Login from './components/Login.js'
-=======
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CalendarPage from './pages/Calendar'
@@ -12,17 +9,11 @@ import NewMember from './pages/NewMember';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import PersonIcon from '@mui/icons-material/Person';
 import CreateIcon from '@mui/icons-material/Create';
->>>>>>> 335faaae1b08654d4de5f9523943017eacb9ebc4
 
 function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-      Begin inserting your code here!
-      <Login></Login>
-    </div>
-=======
       <Router>
       <Route render={({ location, history }) => (
         <React.Fragment>
@@ -78,7 +69,6 @@ function App() {
       />
       </Router>
       </div>
->>>>>>> 335faaae1b08654d4de5f9523943017eacb9ebc4
   );
 }
 
