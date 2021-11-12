@@ -1,38 +1,43 @@
 const bcrypt = require("bcrypt"); // password hashing
-const { createPoolCluster } = require("mysql");
+const jwt = require("jsonwebtoken");
 const uuid = require("uuid");
 const dotenv = require("dotenv").config();
 const mysql = require("../../db/mysqldb");
 ("use strict");
 const saltRounds = 10;
 //$2b$10$Zsj.r.IQSGu7zQWlv9ayK.7P5gnWpZ9Lr.kjDrLnroj6WUzNSsfEG
+
 module.exports = (function () {
-  function root(req, res, next) {
-    const id = "Bob";
-    const password = "Bob";
-    
-    console.log("oooo");
-
+  async function root(req, res, next) {
+    const { username, password } = req.body;
+    const con = await mysql.connection();
     try {
-      const loginId = [0];
+      const loginId = [{ username, password }];
+      // console.log(userLogin);
 
-      console.log("1111");
+      // change a to loginId when database is ready
+      let a = await con.query(
+        "select * from users where username = ?",
+        username
+      );
+      //console.log(a)
 
-       // userLogin = callUser;
       if (loginId.length == 0) {
-        res.status(400).send("id does not exist");
+        return res.status(400).send("id does not exist");
       }
 
       if (loginId.length > 1) {
-        res.status(400).send("more than one id, please check with admin");
+        return res
+          .status(400)
+          .send("more than one id, please check with admin");
       }
 
-      if (bcryptpassword(password, userLogin[0]["password"]) == false) {
-        res.status(400).send("wrong password");
+      if (bcryptpassword(password, loginId["password"]) == false) {
+        return res.status(400).send("wrong password");
       }
 
       const idv4 = uuid.v4();
-
+      
       accessToken = signAccessToken(idv4);
       refreshToken = signRefreshToken(idv4);
 
@@ -41,11 +46,11 @@ module.exports = (function () {
         refreshToken: refreshToken,
         message: "token generated",
       });
-    } catch (error) {
-      console.log(error)
-      res.status(502).send(e);
+    } catch (e) {
+      console.log(e);
+      return res.status(502).send(e);
     } finally {
-      //await con.release();
+      await con.release();
     }
   }
 
@@ -91,14 +96,4 @@ function signAccessToken(userId) {
 
 function signRefreshToken(userId) {
   return signToken(userId, process.env.refreshToken, "1h");
-}
-
-async function callUser() {
-  console.log("oooo");
-  const con = await mysql.connection();
-  let loginID = await con.query(
-    "select * from users where username = ?",
-    username
-  );
-  return loginID;
 }
