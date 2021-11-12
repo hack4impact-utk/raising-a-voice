@@ -36,8 +36,8 @@ module.exports = (function () {
         return res.status(400).send("wrong password");
       }
 
-      const idv4 = uuid.v4();
-      
+      //const idv4 = uuid.v4();
+
       accessToken = signAccessToken(idv4);
       refreshToken = signRefreshToken(idv4);
 

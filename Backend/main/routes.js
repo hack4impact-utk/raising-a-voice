@@ -8,7 +8,7 @@ module.exports = function (app) {
   app.use("/", rootRoutes);
   app.use("/login", loginRoutes);
   app.use("/profile", profileRoutes);
-
+  
   app.all("/*", function (req, res) {
     return res.status(404).json({ message: "Cannot find specified URL" });
   });
