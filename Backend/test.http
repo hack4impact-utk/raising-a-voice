@@ -1,0 +1,19 @@
+GET http://localhost:3000/calendar/Nov/2021 HTTP/1.1
+
+###
+
+GET http://localhost:3000/profile/getAll HTTP/1.1
+
+###
+
+POST http://localhost:3000/calendar/tagprofile/
+content-type: application/json
+
+{
+    "profile_id": "598af587-237d-4f4b-84ec-1c4dfa75535d",
+    "date": "2021-11-02",
+    "month": "Nov",
+    "year": "2021",
+    "notes_id": null,
+    "user_id": null
+}
