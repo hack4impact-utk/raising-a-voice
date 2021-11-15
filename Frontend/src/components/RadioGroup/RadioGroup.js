@@ -1,4 +1,4 @@
-import '../styles/RadioGroup.css';
+import './RadioGroup.css';
 
 import React, {useState, useEffect} from 'react';
 import Radio from '@mui/material/Radio';

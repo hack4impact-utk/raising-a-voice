@@ -1,4 +1,4 @@
-import '../styles/PhoneNumber.css';
+import './PhoneNumber.css';
 
 import React from 'react';
 import MuiPhoneNumber from 'material-ui-phone-number';

@@ -1,4 +1,4 @@
-import '../styles/DatePicker.css';
+import './DatePicker.css';
 
 import React from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';

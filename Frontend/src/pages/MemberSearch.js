@@ -1,13 +1,16 @@
-import '../styles/ProfileSearch.css';
+import '../styles/MemberSearch.css';
 import TESTDATA from "../MOCK_DATA.json";
 
 import React, {useState, useEffect} from 'react';
+import { useHistory } from 'react-router-dom';
 import InputBase from '@mui/material/InputBase';
-import { HiOutlineSearch, HiPlusSm } from "react-icons/hi";
+import { HiPlusSm } from "react-icons/hi";
+import SearchIcon from '@mui/icons-material/Search';
 import ButtonBase from '@mui/material/ButtonBase';
 
 export default function ProfileSearch() {
     const [searchTerm, setSearchTerm] = useState("");
+    let history = useHistory();
 
     const handleSearchChange = e => {
         setSearchTerm(e.target.value);
@@ -18,15 +21,19 @@ export default function ProfileSearch() {
         /* Right now, I am using TESTDATA to test with */
     });
 
+    function goToNewMember() {
+        history.push("/newmember");
+    }
+
     return (
-        <div>
-            <ButtonBase id="add-button" >
+        <div style={{ marginLeft: 64 }}>
+            <ButtonBase id="add-button" onClick={goToNewMember}>
                 <HiPlusSm size={15} />
                 <p className="button-text">Add New Member</p>
             </ButtonBase>
-            <p className="title">Search Member Database</p>
+            <h1 className="title">Search Member Database</h1>
             <div className="search-bar">
-                <HiOutlineSearch size={20} color="#a2a2a2"/>
+                <SearchIcon id="search-icon" />
                 <InputBase
                     id="search-text"
                     placeholder="Search by name"

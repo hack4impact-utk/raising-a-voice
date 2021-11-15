@@ -1,4 +1,4 @@
-import '../styles/Button.css';
+import './Button.css';
 
 import React from 'react';
 import MuiButton from '@mui/material/Button';

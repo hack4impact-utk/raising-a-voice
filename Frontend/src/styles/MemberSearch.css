@@ -4,7 +4,7 @@
     height: 2.5rem;
     font-size: 1rem;
     position: absolute;
-    top: 5vh;
+    top: 7.5vh;
     right: 2.5vw;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .title {
-    margin-top: 15vh;
+    margin-top: 25vh;
     font-size: 2rem;;
 }
 
@@ -28,6 +28,11 @@
     width: 70%;
 }
 
+#search-icon {
+    font-size: 1.75rem;
+    color: #a2a2a2;
+}
+
 #search-text {
     margin-left: 0.5rem;
     height: 1rem !important;
@@ -39,14 +44,7 @@ svg {
 }
 
 @media screen and (max-width: 500px) {
-    #add-button {
-        top: 7.5vh;
-        right: 5vw;
-    }
-    .title {
-        margin-top: 25vh;
-    }
     .search-bar {
-        width: 80%;
+        width: 70%;
     }
  }
