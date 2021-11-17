@@ -36,10 +36,17 @@ module.exports = (function () {
         return res.status(400).send("wrong password");
       }
 
-      //const idv4 = uuid.v4();
+      // profileID,email
+      const userID = [{ profileID, email }];
+      // change b to userID when database is ready
+      // is query correct?
+      let b = await con.query(
+        "select * from users where username = ?",
+        username
+      );
 
-      accessToken = signAccessToken(idv4);
-      refreshToken = signRefreshToken(idv4);
+      accessToken = signAccessToken(userID);
+      refreshToken = signRefreshToken(userID);
 
       res.send({
         accessToken: accessToken,
