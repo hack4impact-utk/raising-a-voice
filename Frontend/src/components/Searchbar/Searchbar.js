@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -35,7 +35,7 @@ export default function Searchbar() {
     const handleChange = (event) => {
         setPersonName(event.target.value)
     };
-
+  
 	return (
         <FormControl sx={{ m: 1, width: 250 }}>
             <InputLabel id="demo-multiple-name-label">Name</InputLabel>
