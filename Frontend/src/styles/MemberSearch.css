@@ -63,8 +63,11 @@ body {
 /* Title and search bar */
 
 .title-and-search-section {
-    margin: 9vh 6vw 0 0;
+    padding: 3rem 0 1rem;
     overflow: auto;
+    position: fixed;
+    background-color: #eff2fa;
+    width: 80%;
 }
 
 .title {
@@ -109,8 +112,12 @@ svg {
 /* Number of profiles (displayed under title) */
 
 .num-profiles-section {
-    margin: 1vh 7vw 0 1vw;
+    margin-top: 6.75rem;
     overflow: auto;
+    position: fixed;
+    background-color: #eff2fa;
+    width: 80%;
+    height: 2rem;
 }
 
 .num-profiles {
@@ -119,15 +126,16 @@ svg {
     font-size: 1.15rem;
     font-weight: 200;
     height: 1.5rem;
-    margin: 0;
+    margin: auto 0 auto 1vw;
 }
 
 /* List/Table of profiles */
 
 .profiles-list-section {
-    margin: 0 6vw 0 0;
-    overflow: auto;
-    background-color: #e5e5e5;
+    padding: 8.5rem 6vw 0 0;
+    overflow: visible;
+    background-color: #eff2fa;
+    height: 200vh;
 }
 
 table {
@@ -135,6 +143,7 @@ table {
     background-color: #eff2fa;
     text-align: left;
     border-collapse: collapse;
+    overflow: auto;
 }
 
 .content-row {
@@ -146,6 +155,9 @@ th {
     height: 2rem;
     font-weight: 600;
     padding: 0 2rem;
+    position: sticky;
+    top: 8.5rem;
+    background-color: #eff2fa;
 }
 
 td {
@@ -166,8 +178,96 @@ td {
     font-size: 1.25rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 850px) {
+    .whole-page {
+        margin-right: 0;
+    }
+
+    .title-and-search-section {
+        padding: 3rem auto 0;
+        width: 81.5%;
+    }
+
+    .title {
+        float: none;
+    }
+    
     .search-bar {
-        width: 70%;
+        width: 90%;
+        margin: 5vh auto 3vh;
+        float: none;
+    }
+
+    .num-profiles-section {
+        margin-top: 10.5rem;
+        width: 81.5%;
+    }
+
+    .num-profiles {
+        margin: 0 0 1vh 1vw;
+    }
+
+    .profiles-list-section {
+        padding-top: 12rem;
+        padding-right: 5vw;
+        background-color: #eff2fa;
+    }
+
+    th {
+        top: 12rem;
+    }
+ }
+
+@media screen and (max-width: 750px) {
+    .whole-page::-webkit-scrollbar {
+        width: 0px;
+        height: 10px;
+    }
+
+    .whole-page {
+        margin: 0 3vw;
+    }
+
+    .title-and-search-section {
+        padding-right: 3vw;
+        width: 85%;
+    }
+
+    .num-profiles-section {
+        width: 90%;
+    }
+
+    table {
+        width: 150%;
+    }
+ }
+
+ @media screen and (max-width: 500px) {
+    .whole-page::-webkit-scrollbar {
+        height: 0;
+    }
+
+    .whole-page {
+        margin: 0 2vw;
+    }
+
+    .title-and-search-section {
+        width: 80%;
+    }
+
+    .num-profiles-section {
+        margin-top: 11rem;
+    }
+
+    .profiles-list-section {
+        padding-top: 13rem;
+    }
+
+    table {
+        width: 200%;
+    }
+
+    th {
+        top: 13rem;
     }
  }

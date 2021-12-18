@@ -35,7 +35,7 @@ export default function Searchbar() {
     const handleChange = (event) => {
         setPersonName(event.target.value)
     };
-  
+    
 	return (
         <FormControl sx={{ m: 1, width: 250 }}>
             <InputLabel id="demo-multiple-name-label">Name</InputLabel>
