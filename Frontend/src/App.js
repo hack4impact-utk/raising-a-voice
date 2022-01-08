@@ -82,11 +82,11 @@ function App() {
       )}
       />
       </Router>
-      <Router>
+      {/* <Router>
         <Switch>
           <Route exact path="/newmember" component={props => <NewMember />} />
         </Switch>
-      </Router>
+      </Router> */}
       </div>
   );
 }

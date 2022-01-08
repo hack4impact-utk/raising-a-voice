@@ -1,3 +1,14 @@
-#creation {
-    margin: 0 1rem 0 1rem;
+#info-page {
+    margin: 0 5rem;
+}
+
+#radio-group {
+    display: flex;
+    justify-content: left;
+}
+
+@media screen and (max-width: 500px) {
+    #info-page {
+        margin: 0 1rem;
+    }
 }

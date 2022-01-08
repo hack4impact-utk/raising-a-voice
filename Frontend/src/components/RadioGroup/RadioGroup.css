@@ -1,4 +1,4 @@
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
     .box {
        height: 52px;
     }
@@ -12,4 +12,21 @@
     label {
        margin-right: 5% !important;
     }
- }
+ } */
+
+.legend {
+    display: flex;
+    justify-content: left;
+}
+
+.legend.Mui-focused.MuiFormLabel-colorPrimary {
+   color: #40389B;
+}
+
+.radio-group .MuiRadio-colorPrimary, .radio-group .MuiRadio-colorPrimary.Mui-checked {
+   color: #40389B;
+}
+
+.radio-group .MuiTypography-root {
+   text-align: left
+}

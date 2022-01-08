@@ -26,10 +26,11 @@ export default function RadioGroup(props) {
     }, []);
 
     return(
-        <FormControl className="box">
-            <FormLabel component="legend">{label}</FormLabel>
+        <FormControl>
+            <FormLabel className="legend" component="legend">{label}</FormLabel>
             <MuiRadioGroup
-                row={windowWidth > 500 ? true : false}
+                className="radio-group"
+                column={true}
                 name={name}
                 value={value}
                 onChange={onChange}
@@ -40,7 +41,7 @@ export default function RadioGroup(props) {
                         <FormControlLabel
                             key={item.id}
                             value={item.id}
-                            control={<Radio id="test"/>}
+                            control={<Radio />}
                             label={item.title}
                         /> 
                     )

@@ -23,21 +23,6 @@ export default function ProfileSearch() {
     //     history.push("/newmember");
     // }
 
-    // useEffect(() => {
-    //     getProfiles();
-    // }, []);
-
-    // const getProfiles = async () => {
-    //     try {
-    //         const res = await axios.get('https://raising-a-voice.vercel.app/profile/getAll');
-    //         console.log(res);
-    //         setProfiles(res.data);
-    //         console.log(profiles);
-    //     } catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
     useEffect(() => {
         axios.get('https://raising-a-voice.vercel.app/profile/getAll') 
             .then(res => {
@@ -91,7 +76,7 @@ export default function ProfileSearch() {
                             return profile;
                         }
                         }).map((profile, index) => {
-                        if (index%2 == 0) {
+                        if (index%2 === 0) {
                             return (
                                 <tr className="content-row white-background">
                                     <td>{profile.legal_name}</td>

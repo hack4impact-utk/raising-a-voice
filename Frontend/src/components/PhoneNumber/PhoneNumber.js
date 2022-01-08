@@ -14,13 +14,13 @@ export default function DatePicker(props) {
 
     return (
         <MuiPhoneNumber
+            className="phone-number"
             label={label}
             name={name}
             value={value}
             onChange={cellNumber => onChange(convertToDefaultEventParameter(name, cellNumber))}
             defaultCountry={'us'}
             variant="outlined"
-            className="phone-number"
         />
     )
 }

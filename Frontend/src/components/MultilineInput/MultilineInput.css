@@ -1,0 +1,13 @@
+.text-field {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.date-picker .Mui-focused.MuiFormLabel-colorPrimary {
+  color: #40389B;
+}
+
+.date-picker .Mui-focused.MuiOutlinedInput-root fieldset{
+  border-color: #40389B;
+}

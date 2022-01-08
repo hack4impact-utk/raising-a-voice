@@ -1,4 +1,4 @@
-import './Input.css';
+import './MultilineInput.css';
 
 import React from 'react';
 import TextField from '@mui/material/TextField';
@@ -14,6 +14,8 @@ export default function Input(props) {
             name={name}
             value={value}
             onChange={onChange}
+            multiline
+            rows={rows}
             autoComplete="none"
             size="large"
         />

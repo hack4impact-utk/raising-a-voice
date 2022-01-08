@@ -100,7 +100,7 @@ body {
     font-size: 1rem;
 }
 
-.MuiInputBase-root {
+.search-bar .MuiInputBase-root {
     height: 1rem;
     width: 85%;
 } 
@@ -135,7 +135,8 @@ svg {
     padding: 8.5rem 6vw 0 0;
     overflow: visible;
     background-color: #eff2fa;
-    height: 200vh;
+    /* The following line is just to test the scroll bar */
+    /* height: 200vh; */
 }
 
 table {
