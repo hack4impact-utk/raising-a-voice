@@ -145,10 +145,12 @@ table {
     text-align: left;
     border-collapse: collapse;
     overflow: auto;
+    margin-bottom: 3rem;
 }
 
 .content-row {
     border: 1px solid;
+    border-right: 0;
     border-color:#e5e5e5;
 }
 
@@ -161,7 +163,7 @@ th {
     background-color: #eff2fa;
 }
 
-td {
+/* td {
     padding: 0 2rem;
 }
 
@@ -177,7 +179,7 @@ td {
     margin: 1px;
     height: 2.75rem;
     font-size: 1.25rem;
-}
+} */
 
 @media screen and (max-width: 850px) {
     .whole-page {

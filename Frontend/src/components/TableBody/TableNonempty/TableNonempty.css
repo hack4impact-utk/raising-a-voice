@@ -1,0 +1,24 @@
+.nonempty-content-row {
+  border: 1px solid;
+  border-right: 0;
+  border-left: 0;
+  border-color:#e5e5e5;
+}
+
+td {
+  padding: 0 2rem;
+}
+
+.white-background {
+  background-color: #ffffff;
+}
+
+.blue-background {
+  background-color: #f9fafd;
+}
+
+.white-background, .blue-background {
+  margin: 1px;
+  height: 2.75rem;
+  font-size: 1.25rem;
+}

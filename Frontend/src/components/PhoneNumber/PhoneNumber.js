@@ -1,7 +1,7 @@
-import './PhoneNumber.css';
-
-import React from 'react';
 import MuiPhoneNumber from 'material-ui-phone-number';
+import React from 'react';
+
+import './PhoneNumber.css';
 
 export default function DatePicker(props) {
     const {name, label, value, onChange} = props;

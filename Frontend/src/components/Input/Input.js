@@ -1,7 +1,7 @@
-import './Input.css';
-
-import React from 'react';
 import TextField from '@mui/material/TextField';
+import React from 'react';
+
+import './Input.css';
 
 export default function Input(props) {
     const {label, name, value, onChange, rows} = props;

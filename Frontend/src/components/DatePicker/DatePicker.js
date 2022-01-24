@@ -1,10 +1,10 @@
-import './DatePicker.css';
-
-import React from 'react';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import TextField from '@mui/material/TextField';
+import React from 'react';
+
+import './DatePicker.css';
 
 export default function DatePicker(props) {
     const {name, label, value, onChange} = props;

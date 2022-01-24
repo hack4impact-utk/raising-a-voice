@@ -1,7 +1,8 @@
+import TextField from '@mui/material/TextField';
+import React from 'react';
+
 import './MultilineInput.css';
 
-import React from 'react';
-import TextField from '@mui/material/TextField';
 
 export default function Input(props) {
     const {label, name, value, onChange, rows} = props;

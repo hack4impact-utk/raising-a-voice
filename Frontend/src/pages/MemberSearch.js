@@ -1,5 +1,6 @@
 import '../styles/MemberSearch.css';
-import TESTDATA from "../MOCK_DATA.json";
+import TESTDATA from '../MOCK_DATA.json';
+import TableBody from '../components/TableBody/TableBody';
 
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
@@ -14,14 +15,50 @@ export default function ProfileSearch() {
     const [profiles, setProfiles] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     let history = useHistory();
+    let [filteredProfiles, setFilteredProfiles] = useState(TESTDATA);
 
     const handleSearchChange = e => {
         setSearchTerm(e.target.value);
+        setFilteredProfiles(TESTDATA.filter((profile) => {
+            if (e.target.value === "") {
+                return profile;
+            } else if (profile.legal_name.toLowerCase().includes(e.target.value.toLowerCase())) {
+                return profile;
+            } else if (profile.nickname.toLowerCase().includes(e.target.value.toLowerCase())) {
+                return profile;
+            }
+        }));
     }
 
     // function goToNewMember() {
     //     history.push("/newmember");
     // }
+    const tableBody = () => {
+        if (filteredProfiles.length !== 0) {
+            filteredProfiles.map((profile, index) => {
+                if (index%2 === 0) {
+                    return (
+                        <tr className="content-row white-background">
+                            <td>{profile.legal_name}</td>
+                            <td>{profile.nickname}</td>
+                            <td>Identifier?</td>
+                        </tr>
+                    );
+                }
+                else {
+                    return (
+                        <tr className="content-row blue-background">
+                            <td>{profile.legal_name}</td>
+                            <td>{profile.nickname}</td>
+                            <td>Identifier?</td>
+                        </tr>
+                    );
+                }
+            })
+        } else {
+            console.log('No Profiles to View')
+        }
+    }
 
     useEffect(() => {
         axios.get('https://raising-a-voice.vercel.app/profile/getAll') 
@@ -58,7 +95,7 @@ export default function ProfileSearch() {
                 </div>
             </section>
             <section className="num-profiles-section">
-                <p className="num-profiles">{profiles.length}</p>
+                <p className="num-profiles">{filteredProfiles.length}</p>
             </section>
             <section className="profiles-list-section">
                 <table>
@@ -67,7 +104,7 @@ export default function ProfileSearch() {
                         <th>Nickname</th>
                         <th>Identifier</th>
                     </tr>
-                    {profiles.filter((profile) => {
+                    {/* {filteredProfiles = TESTDATA.filter((profile) => {
                         if (searchTerm === "") {
                             return profile;
                         } else if (profile.legal_name.toLowerCase().includes(searchTerm.toLowerCase())) {
@@ -94,7 +131,8 @@ export default function ProfileSearch() {
                                 </tr>
                             );
                         }
-                    })}
+                    })} */}
+                    <TableBody filteredProfiles={filteredProfiles} />
                 </table>
             </section>              
             </div>
