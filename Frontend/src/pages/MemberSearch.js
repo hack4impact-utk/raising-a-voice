@@ -17,6 +17,7 @@ export default function ProfileSearch() {
     let history = useHistory();
     let [filteredProfiles, setFilteredProfiles] = useState(TESTDATA);
 
+    /* Filters profiles as search term is updated */
     const handleSearchChange = e => {
         setSearchTerm(e.target.value);
         setFilteredProfiles(TESTDATA.filter((profile) => {
@@ -33,32 +34,6 @@ export default function ProfileSearch() {
     // function goToNewMember() {
     //     history.push("/newmember");
     // }
-    const tableBody = () => {
-        if (filteredProfiles.length !== 0) {
-            filteredProfiles.map((profile, index) => {
-                if (index%2 === 0) {
-                    return (
-                        <tr className="content-row white-background">
-                            <td>{profile.legal_name}</td>
-                            <td>{profile.nickname}</td>
-                            <td>Identifier?</td>
-                        </tr>
-                    );
-                }
-                else {
-                    return (
-                        <tr className="content-row blue-background">
-                            <td>{profile.legal_name}</td>
-                            <td>{profile.nickname}</td>
-                            <td>Identifier?</td>
-                        </tr>
-                    );
-                }
-            })
-        } else {
-            console.log('No Profiles to View')
-        }
-    }
 
     useEffect(() => {
         axios.get('https://raising-a-voice.vercel.app/profile/getAll') 

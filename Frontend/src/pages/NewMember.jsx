@@ -11,6 +11,7 @@ import '../styles/NewMember.css';
 
 const axios = require('axios');
 
+/* Options for multiple choice questions */
 const genderItems = [
   {id: 'male', title: 'Male'},
   {id: 'female', title: 'Female'},
@@ -86,7 +87,7 @@ const NewMember = () => {
       });
     } else {
 
-      // Get the month (MM)
+      /* Get the month (MM) */
       let month;
       switch(value.getMonth()) {
         case 0:
@@ -127,7 +128,7 @@ const NewMember = () => {
           break;
       }
 
-      // Get the day (DD)
+      /* Get the day (DD) */
       const day_num = value.getDate();
       let day;
       if (day_num.toString().length === 1) {
@@ -136,10 +137,10 @@ const NewMember = () => {
         day = day_num
       }
 
-      // Get the year (YYYY)
+      /* Get the year (YYYY) */
       const year = value.getFullYear();
 
-      // Format the DOB and convert dependents to an int
+      /* Format the DOB and convert dependents to an int */
       setValues({
         ...values,
         [name]: year + '-' + month + '-' + day,
@@ -150,7 +151,7 @@ const NewMember = () => {
   const handleZipChange = e => {
     let {name, value} = e.target;
     
-    // Verify the zip is five characters in length
+    /* Verify the zip is five characters in length */
     if (value.length > 5) {
       value = value.substr(0, 5);
     }
@@ -162,9 +163,8 @@ const NewMember = () => {
 
   const handleDependentsChange = e => {
     let {name, value} = e.target;
-    // const prevValue = values.dependents;
 
-    // Convert the number of dependents to an int
+    /* Convert the number of dependents to an int */
     if (value[value.length-1] >= '0' && value[value.length-1] <= '9') {
       value = parseInt(value, 10);
       setValues({
@@ -179,6 +179,7 @@ const NewMember = () => {
     }
   }
 
+  /* Store profile in database */
   const createProfile = event => {
     event.preventDefault();  
     console.log(values);
