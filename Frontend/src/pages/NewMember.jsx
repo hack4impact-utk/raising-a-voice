@@ -38,6 +38,7 @@ const yesNoItems = [
   {id: 'N', title: 'No'},
 ]
 
+/* Starting state of the profile values */
 const initialValues = {
   legal_name: '',
   nickname: '',
@@ -70,6 +71,7 @@ const initialValues = {
 const NewMember = () => {
   const [values, setValues] = useState(initialValues);
 
+  /* Updates all profile values except DOB */
   const handleInputChange = e => {
     const {name, value} = e.target;
     setValues({
@@ -78,6 +80,7 @@ const NewMember = () => {
     });
   }
 
+  /* Updated the DOB profile value */
   const handleDoBChange = e => {
     const {name, value} = e.target;
     if (value === null) {
