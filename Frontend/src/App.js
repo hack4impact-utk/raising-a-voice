@@ -6,6 +6,7 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import './styles/NavBar.css'
 import Members from './pages/Members';
 import NewMember from './pages/NewMember';
+import Profile from './pages/Profile';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import PersonIcon from '@mui/icons-material/Person';
 import CreateIcon from '@mui/icons-material/Create';
@@ -63,6 +64,7 @@ function App() {
             <Route path="/calendar" component={props => <CalendarPage />} />
             <Route path="/members" component={props => <Members />} />
             <Route path="/newmember" component={props => <NewMember />} />
+            <Route path="/profile" component={props => <Profile />} />
           </main>
         </React.Fragment>
       )}
