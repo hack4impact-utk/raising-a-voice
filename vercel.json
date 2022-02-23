@@ -3,16 +3,18 @@
     "name": "nodejs-mysql",
     "builds": [
       { "src": "./Backend/server.js", "use": "@vercel/node" }
+      
     ],
     "routes": [
         { "src": "/(.*)", "dest": "/Backend/server.js" }
+        
     ],
     "env": {
-      "development": "sql5.freemysqlhosting.net",
+      "development": "rav-database.cuzegptvptjx.us-east-1.rds.amazonaws.com",
       "host": "null",
-      "user": "sql5446426",
-      "password": "aMT1x5FBp9",
-      "database": "sql5446426",
+      "user": "rav_admin",
+      "password": "Access1!",
+      "database": "raising_a_voice",
       "accessToken": "RAV-shortToken",
       "refreshToken": "RAV-longToken"
     }

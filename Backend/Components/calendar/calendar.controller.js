@@ -39,10 +39,9 @@ module.exports = function () {
                 "Dec": 11
             }
 
-            let dates = getDaysInMonth(months_object[month], 2021)
+            let dates = getDaysInMonth(months_object[month], year)
 
             
-
             
             let result = []
 
@@ -58,33 +57,34 @@ module.exports = function () {
                         where date = ? and month = ? and year = ? 
                         order by date`, [dates[i], month, year]
                 )
-
                 if (get_all_cwp.length === 0) {
                     result.push([{
-                        "profile": null,
+                        "profile": [],
                         "date": dates[i],
-                        "duration": null,
-                        "author": null,
-                        "time": null,
                     }])
                     continue
                 }
 
-                let each_date = []
+
+                let obj = {}
+
+                obj["date"] = dates[i]
+                obj["profile"] = []
+
                 
                 for (let j = 0; j < get_all_cwp.length; j++) {
-                    let obj = {}
+                    let profile_obj = {}
 
-                    obj["profile"] = get_all_cwp[j]["legal_name"]
-                    obj["date"] = dates[i]
-                    obj["duration"] = get_all_cwp[j]["duration"]
-                    obj["author"] = get_all_cwp[j]["username"]
-                    obj["time"] = get_all_cwp[j]["time"]
+                    profile_obj["name"] = get_all_cwp[j]["legal_name"]
+                    profile_obj["duration"] = get_all_cwp[j]["duration"]
+                    profile_obj["author"] = get_all_cwp[j]["username"]
+                    profile_obj["time"] = get_all_cwp[j]["time"]
+                    
+                    obj["profile"].push(profile_obj)
 
-                    each_date.push(obj)
                 }
 
-                result.push(each_date)
+                result.push([obj])
 
             }
 
