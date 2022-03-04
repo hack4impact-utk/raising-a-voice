@@ -10,9 +10,9 @@
         
     ],
     "env": {
-      "development": "rav-database.cuzegptvptjx.us-east-1.rds.amazonaws.com",
+      "development": "rav-database-prod.cuzegptvptjx.us-east-1.rds.amazonaws.com",
       "host": "null",
-      "user": "rav_admin",
+      "user": "rav_dev",
       "password": "Access1!",
       "database": "raising_a_voice",
       "accessToken": "RAV-shortToken",
