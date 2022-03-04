@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import Grid from '@mui/material/Grid'
 import { Inject, Day, Week, WorkWeek, Month, Agenda, ScheduleComponent } from '@syncfusion/ej2-react-schedule'
 import Calendar from 'react-calendar'
@@ -17,6 +19,37 @@ const tasks = [
 ]
 
 const CalendarPage = () => {
+  const [cal_data, setCal_data] = useState([{}])
+
+  useEffect(async () => {
+    let raw_data = await axios.get('https://raising-a-voice.vercel.app/api/calendar/Mar/2022')
+    let { data } = raw_data
+    for (let i = 0 ; i < data.length; i++) {
+
+      for (let j = 0; j < data[i][0].profile.length; j++) {
+        let obj = data[i][0].profile[j]
+        let current_date = data[i][0].date
+      let start_time = new Date(2022, 2, 3, 10, 0)
+      let end_time = new Date(2022, 2, 3, 12, 30)
+      console.log(start_time, end_time)
+        obj['StartTime'] =start_time
+        obj['EndTime'] = end_time
+        console.log(obj)
+          setCal_data(obj)
+      }
+    }
+    
+  }, [])
+
+  const test = [{
+    Id: 2,
+    Subject: 'Meeting',
+    StartTime: new Date(2022, 2, 3, 10, 0),
+    EndTime: new Date(2022, 2, 3, 12, 30),
+    IsAllDay: false,
+    Status: 'Completed',
+    Priority: 'High'
+  }];
   return (
     <div className='calendar-container' style={{ marginLeft: 64 }}>
       {/* <ScheduleComponent currentView='Month'>
@@ -41,9 +74,21 @@ const CalendarPage = () => {
           <div className='scheduler-options'>
             <h1 id="h1-tmp">Oct 09-15</h1>
           </div>
-          <ScheduleComponent cssClass='sheduler-component' currentView='Month' style={{ borderRadius: '25px' }}>
+          {/* <ScheduleComponent cssClass='sheduler-component'  style={{ borderRadius: '25px' }}  eventSettings={{ dataSource: test,
+            fields: {
+                id: 'Id',
+                subject: { name: 'Subject' },
+                isAllDay: { name: 'IsAllDay' },
+                startTime: { name: 'StartTime' },
+                endTime: { name: 'EndTime' }
+            }
+            }}>
             <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
-          </ScheduleComponent>
+          </ScheduleComponent> */}
+
+          <ScheduleComponent height='550px'  selectedDate={new Date(2022, 2, 3)} eventSettings={{ dataSource: test }}>
+          <Inject services={[Day, Week, WorkWeek, Month, Agenda]}/>
+        </ScheduleComponent>
         </Grid>
       </Grid>
     </div>

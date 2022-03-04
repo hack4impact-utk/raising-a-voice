@@ -1,5 +1,6 @@
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Button from '../components/Button/Button';
 import DatePicker from '../components/DatePicker/DatePicker';
@@ -8,8 +9,6 @@ import MultilineInput from '../components/MultilineInput/MultilineInput';
 import PhoneNumber from '../components/PhoneNumber/PhoneNumber';
 import RadioGroup from '../components/RadioGroup/RadioGroup';
 import '../styles/NewMember.css';
-
-const axios = require('axios');
 
 /* Options for multiple choice questions */
 const genderItems = [
@@ -202,7 +201,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Input
             label="Nickname"
             name="nickname"
@@ -210,7 +209,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <DatePicker
             label="Date of Birth"
             name="DoB"
@@ -218,7 +217,7 @@ const NewMember = () => {
             onChange={handleDoBChange}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Marital Status"
             name="marital_status"
@@ -227,7 +226,7 @@ const NewMember = () => {
             items={maritalItems}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Sex"
             name="sex"
@@ -236,7 +235,7 @@ const NewMember = () => {
             items={genderItems}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Race"
             name="race"
@@ -245,7 +244,7 @@ const NewMember = () => {
             items={raceItems}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Input
             label="Address"
             name="address"
@@ -253,7 +252,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12}>
           <Input
             label="City"
             name="city"
@@ -261,7 +260,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12}>
           <Input
             label="County"
             name="county"
@@ -269,7 +268,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12}>
           <Input
             label="State"
             name="state"
@@ -277,7 +276,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12}>
           <Input
             label="Zip"
             name="zip"
@@ -285,7 +284,7 @@ const NewMember = () => {
             onChange={handleZipChange}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <PhoneNumber
             label="Contact Number"
             name="contact_number"
@@ -293,7 +292,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Input
             label="Social Security #"
             name="social_security"
@@ -301,7 +300,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Input
             label="Driver's License"
             name="driver_license"
@@ -309,7 +308,7 @@ const NewMember = () => {
             onChange={handleInputChange}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Employed"
             name="employed"
@@ -318,7 +317,7 @@ const NewMember = () => {
             items={yesNoItems}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Insurance"
             name="insurance"
@@ -327,7 +326,7 @@ const NewMember = () => {
             items={yesNoItems}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Veteran"
             name="veteran"
@@ -336,7 +335,7 @@ const NewMember = () => {
             items={yesNoItems}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Input
             label="Number of Dependents"
             name="dependents"
@@ -362,7 +361,7 @@ const NewMember = () => {
             rows={3}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Disability"
             name="disability"
@@ -389,7 +388,7 @@ const NewMember = () => {
             rows={3}
           />
         </Grid>
-        <Grid item xs={12} md={12} id="radio-group">
+        <Grid item xs={12} id="radio-group">
           <RadioGroup
             label="Any Current Medications?"
             name="medication_boolean"
@@ -416,7 +415,7 @@ const NewMember = () => {
             rows={7}
           />
         </Grid>
-        <Grid item xs={12} md={3}>
+        <Grid item xs={12}>
           <Button
             variant="contained"
             size="large"

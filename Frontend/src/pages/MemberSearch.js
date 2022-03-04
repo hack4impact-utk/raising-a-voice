@@ -9,7 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { HiPlusSm } from "react-icons/hi";
 import ButtonBase from '@mui/material/ButtonBase';
 
-const axios = require('axios');
+
 
 export default function ProfileSearch() {
     const [profiles, setProfiles] = useState([]);

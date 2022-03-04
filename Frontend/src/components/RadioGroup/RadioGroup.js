@@ -16,10 +16,12 @@ export default function RadioGroup(props) {
       
     const [windowWidth, setWindowWidth] = useState(getWindowWidth());
     
+
+
     useEffect(() => {
         function handleResize() {
             setWindowWidth(getWindowWidth());
-    }
+        }
     
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -30,7 +32,7 @@ export default function RadioGroup(props) {
             <FormLabel className="legend" component="legend">{label}</FormLabel>
             <MuiRadioGroup
                 className="radio-group"
-                column={true}
+                row={true}
                 name={name}
                 value={value}
                 onChange={onChange}
