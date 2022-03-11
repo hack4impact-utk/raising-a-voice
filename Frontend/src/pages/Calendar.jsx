@@ -29,13 +29,17 @@ const CalendarPage = () => {
       for (let j = 0; j < data[i][0].profile.length; j++) {
         let obj = data[i][0].profile[j]
         let current_date = data[i][0].date
-      let start_time = new Date(2022, 2, 3, 10, 0)
-      let end_time = new Date(2022, 2, 3, 12, 30)
-      console.log(start_time, end_time)
-        obj['StartTime'] =start_time
+     
+        console.log(current_date)
+        let start_time = new Date(2022, 3, 3, 10, 0)
+        start_time.setMonth(start_time.getMonth() - 1)
+        let end_time = new Date(2022, 3, 3, 12, 30)
+        end_time.setMonth(end_time.getMonth() - 1)
+        console.log(start_time, end_time)
+        obj['StartTime'] = start_time
         obj['EndTime'] = end_time
         console.log(obj)
-          setCal_data(obj)
+        setCal_data(obj)
       }
     }
     

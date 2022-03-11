@@ -1,0 +1,20 @@
+{
+  "name": "raising-a-voice",
+  "version": "1.0.0",
+  "description": "User database to host information about clients. ## Tech Stack **Frontend:** React.js/Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hack4impact-utk/raising-a-voice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hack4impact-utk/raising-a-voice/issues"
+  },
+  "homepage": "https://github.com/hack4impact-utk/raising-a-voice#readme"
+}

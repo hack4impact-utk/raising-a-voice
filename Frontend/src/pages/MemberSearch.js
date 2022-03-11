@@ -1,6 +1,7 @@
 import '../styles/MemberSearch.css';
 import TESTDATA from '../MOCK_DATA.json';
 import TableBody from '../components/TableBody/TableBody';
+import axios from 'axios';
 
 import React, {useState, useEffect} from 'react';
 import { useHistory } from 'react-router-dom';
