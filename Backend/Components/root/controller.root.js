@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = function () {
 
     function root(req, res, next) {
@@ -10,6 +11,7 @@ module.exports = function () {
             'status': 'OK',
         });
     }
+
 
     return {
         root: root
