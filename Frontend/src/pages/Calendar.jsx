@@ -16,9 +16,11 @@ const tasks = [
   "Test 7",
   "Test 8"
 ]
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const CalendarPage = () => {
   const [cal_data, setCal_data] = useState([{}])
+  const [month, setMonth] = useState('')
   useEffect(() => {
     async function fetchData() {
       let raw_data = await axios.get('https://raising-a-voice.vercel.app/api/calendar/Mar/2022')
@@ -34,6 +36,8 @@ const CalendarPage = () => {
 
           startTime.setHours(10, 0, 0)
           endTime.setHours(12, 30, 0)
+//          startTime: 10:00
+//          endTime: 12:30
 
           obj['StartTime'] = startTime
           obj['EndTime'] = endTime
