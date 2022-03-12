@@ -58,27 +58,13 @@ function App() {
                   New Member
                 </NavText>
               </NavItem>
-              <NavItem eventKey="profilesearch">
-                <NavIcon>
-                  <i className="fa fa-fw fa-profilesearch" style={{ fontSize: '1.75em', color: '#EFCE66' }}>
-                    <SearchIcon />
-                  </i>  
-                </NavIcon>
-                <NavText>
-                  Profile Seaerch
-                </NavText>
-              </NavItem>
             </SideNav.Nav>
           </SideNav>
           <main>
             <Route path="/calendar" component={props => <CalendarPage />} />
             <Route path="/members" component={props => <Members />} />
             <Route path="/newmember" component={props => <NewMember />} />
-<<<<<<< HEAD
-            <Route path="/profilesearch" component={props => <ProfileSearch />} />
-=======
             <Route path="/profile" component={props => <Profile />} />
->>>>>>> main
           </main>
         </React.Fragment>
       )}
